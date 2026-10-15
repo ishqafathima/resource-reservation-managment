@@ -1,36 +1,200 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PrimeWave Resource Reservation Management System
+
+A full-stack web application developed for the PrimeWave Lab (Pvt) Ltd Software Engineering Internship Technical Assessment.
+
+The system provides a centralized way to manage shared resources and reservations, check resource availability, and reduce scheduling conflicts.
+
+## Overview
+
+Organizations often manage shared facilities through informal communication and manual records. This can lead to overlapping reservations and uncertainty about resource availability.
+
+The Resource Reservation Management System addresses this problem by providing a web-based platform for resource management, reservation scheduling, and availability checking.
+
+## Features
+
+### Authentication and Access Control
+- User registration and login.
+- Secure password hashing.
+- Role-based access for administrators and regular users.
+- Protected pages and API endpoints.
+
+### Resource Management
+- Administrators can add resources.
+- Resources include details such as name, type, location, and description.
+- Active resources are available for regular users to browse.
+
+### Reservation Management
+- Users can create reservations for available resources.
+- Users can view and cancel their own reservations.
+- Administrators can view reservations across users.
+- Reservation requests are checked for overlapping confirmed bookings.
+
+### Availability and Dashboard
+- Check resource availability for a selected time period.
+- View resource and reservation information through the dashboard.
+- Display reservation and resource statistics.
+
+## Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| Next.js App Router | Full-stack web framework |
+| TypeScript | Type-safe application development |
+| React | User interface |
+| Tailwind CSS | Styling |
+| PostgreSQL | Persistent relational database |
+| Prisma ORM | Database access and migrations |
+| Auth.js / NextAuth | Authentication |
+| bcryptjs | Password hashing |
+| Git and GitHub | Version control and source code hosting |
+
+## Prerequisites
+
+Install the following before setting up the project:
+
+- Node.js and npm
+- PostgreSQL
+- Git
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/ishqafathima/resource-reservation-managment.git
+cd resource-reservation-managment
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure environment variables
+
+Create a `.env` file in the project root.
+
+Configure the PostgreSQL connection string and authentication secret required by the application.
+
+Example:
+
+```env
+DATABASE_URL="postgresql://YOUR_USERNAME:YOUR_PASSWORD@localhost:5432/YOUR_DATABASE"
+AUTH_SECRET="YOUR_AUTH_SECRET"
+```
+
+Replace the example values with your own local credentials. Use the variable names expected by the project configuration.
+
+**Security:** Never commit `.env` files, database passwords, or authentication secrets to GitHub.
+
+### 4. Create the database
+
+Create a PostgreSQL database for the application and ensure that PostgreSQL is running.
+
+### 5. Apply database migrations
+
+Run the following command to apply the existing Prisma migrations:
+
+```bash
+npx prisma migrate deploy
+```
+
+Generate the Prisma Client if required:
+
+```bash
+npx prisma generate
+```
+
+### 6. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 7. Build for production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To check whether the application builds successfully, run:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+## User Roles
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Administrator
+- Add and manage resources.
+- View reservations across users.
+- Manage reservations according to the application's permissions.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Regular User
+- Register and log in.
+- Browse active resources.
+- Check resource availability.
+- Create and view reservations.
+- Cancel their own reservations.
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+app/
+├── api/
+│   ├── auth/
+│   ├── register/
+│   ├── reservations/
+│   └── resources/
+├── availability/
+├── login/
+├── register/
+├── reservations/
+├── resources/
+├── layout.tsx
+└── page.tsx
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+lib/
+└── prisma.ts
+
+prisma/
+├── migrations/
+└── schema.prisma
+
+scripts/
+auth.ts
+prisma7.config.ts
+package.json
+README.md
+```
+
+## Database Design
+
+The application uses PostgreSQL for persistent storage and Prisma ORM to define and manage its database schema.
+
+The database includes entities for users, resources, and reservations, with relationships that associate reservations with their users and selected resources.
+
+**Entity Relationship (ER) Diagram:** [Add the shareable ER diagram link here]
+
+## Assessment Demonstration
+
+**Demonstration Video:** [Add the video link here when available]
+
+The demonstration should show the main workflows, including authentication, resource management, availability checking, reservation creation, and reservation management.
+
+## Future Improvements
+
+- Stronger protection against simultaneous conflicting reservation requests.
+- Automated tests for API endpoints and reservation rules.
+- Improved reservation filtering and reporting.
+- More detailed operational monitoring and error handling.
+
+## Author
+Fathima Ishka
+
+GitHub: [@ishqafathima](https://github.com/ishqafathima)
+
+## Project Information
+
+Developed as part of the PrimeWave Lab (Pvt) Ltd Software Engineering Internship Technical Assessment.
+
+Repository: [Resource Reservation Management System](https://github.com/ishqafathima/resource-reservation-managment)
