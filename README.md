@@ -173,12 +173,12 @@ The application uses PostgreSQL for persistent storage and Prisma ORM to define 
 
 The database includes entities for users, resources, and reservations, with relationships that associate reservations with their users and selected resources.
 
-**Entity Relationship (ER) Diagram:** [Add the shareable ER diagram link here]
+**Entity Relationship (ER) Diagram:** (https://mermaid.live/edit#pako:eNq1U01PwkAQ_SubOQORrRbojSgmxEQNigfTy9odYUO728xu_ar8dwcEgqYaE3UOzbx5b153ZtsaMqcREkA6MWpGqkgptYJjejWaCPfabrtaTEYMbobX44tzkYhCLdBvZUxdTCfHI_HaJJ2rtfCDZ71FqzA2CKPF5dl-0QcydiasKrChjIUyuZg2dZTK-0dHep-auBwF8WO_qFXAYAoUGSGnehga2arUH9nl_jS70X87UXgum8q5y1QwzooUXLlKVJ5Cg06jz8iU30rvHG9AWWH8MAvm4V-Wsbv3H-8jmPDFvfigKFyboplFqz9zG0fuC5X_i-m2Zyf0rqIMx1qcnn0mK4-0JhoXv4QWzMhoSAJV2IICib9dhlCvBCmEOfIUkHBKqKuntla0aGcud8QudtVfKnvrXLG1IFfN5pDcq9wzej_05sfdVYnXg3TsKhsgkd21ByQ1PDHqHXS6Ufco7sreQA7iQQueIYlkJ46klP3-EZP9KF624GX90oNOv3c44IhZ0ItlJJdvazdJ_A)
 
 ## Assessment Demonstration
 
 **Demonstration Video:** [Add the video link here when available]
-
+Get-Content prisma/schema.prisma
 The demonstration should show the main workflows, including authentication, resource management, availability checking, reservation creation, and reservation management.
 
 ## Future Improvements
