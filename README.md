@@ -1,54 +1,54 @@
-# PrimeWave Resource Reservation Management System
+PrimeWave Resource Reservation Management System
 
 A full-stack web application developed for the PrimeWave Lab (Pvt) Ltd Software Engineering Internship Technical Assessment.
 
 The system provides a centralized way to manage shared resources and reservations, check resource availability, and reduce scheduling conflicts.
 
-## Overview
+Overview
 
 Organizations often manage shared facilities through informal communication and manual records. This can lead to overlapping reservations and uncertainty about resource availability.
 
 The Resource Reservation Management System addresses this problem by providing a web-based platform for resource management, reservation scheduling, and availability checking.
 
-## Features
+Features
 
-### Authentication and Access Control
+Authentication and Access Control
 - User registration and login.
 - Secure password hashing.
 - Role-based access for administrators and regular users.
 - Protected pages and API endpoints.
 
-### Resource Management
+Resource Management
 - Administrators can add resources.
 - Resources include details such as name, type, location, and description.
 - Active resources are available for regular users to browse.
 
-### Reservation Management
+Reservation Management
 - Users can create reservations for available resources.
 - Users can view and cancel their own reservations.
 - Administrators can view reservations across users.
 - Reservation requests are checked for overlapping confirmed bookings.
 
-### Availability and Dashboard
+Availability and Dashboard
 - Check resource availability for a selected time period.
 - View resource and reservation information through the dashboard.
 - Display reservation and resource statistics.
 
-## Technology Stack
+Technology Stack
 
-| Technology | Purpose |
-|---|---|
-| Next.js App Router | Full-stack web framework |
-| TypeScript | Type-safe application development |
-| React | User interface |
-| Tailwind CSS | Styling |
-| PostgreSQL | Persistent relational database |
-| Prisma ORM | Database access and migrations |
-| Auth.js / NextAuth | Authentication |
-| bcryptjs | Password hashing |
-| Git and GitHub | Version control and source code hosting |
+| Technology |                Purpose |
 
-## Prerequisites
+| Next.js App Router |        Full-stack web framework |
+| TypeScript |                Type-safe application development |
+| React |                     User interface |
+| Tailwind CSS |              Styling |
+| PostgreSQL |                Persistent relational database |
+| Prisma ORM |                Database access and migrations |
+| Auth.js / NextAuth |        Authentication |
+| bcryptjs |                  Password hashing |
+| Git and GitHub |            Version control and source code hosting |
+
+Prerequisites
 
 Install the following before setting up the project:
 
@@ -56,22 +56,22 @@ Install the following before setting up the project:
 - PostgreSQL
 - Git
 
-## Getting Started
+Getting Started
 
-### 1. Clone the repository
+1. Clone the Repository
 
 ```bash
 git clone https://github.com/ishqafathima/resource-reservation-managment.git
 cd resource-reservation-managment
 ```
 
-### 2. Install dependencies
+2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Configure environment variables
+3. Configure Environment Variables
 
 Create a `.env` file in the project root.
 
@@ -86,13 +86,13 @@ AUTH_SECRET="YOUR_AUTH_SECRET"
 
 Replace the example values with your own local credentials. Use the variable names expected by the project configuration.
 
-**Security:** Never commit `.env` files, database passwords, or authentication secrets to GitHub.
+Security:Never commit `.env` files, database passwords, or authentication secrets to GitHub.
 
-### 4. Create the database
+4. Create the Database
 
 Create a PostgreSQL database for the application and ensure that PostgreSQL is running.
 
-### 5. Apply database migrations
+5. Apply Database Migrations
 
 Run the following command to apply the existing Prisma migrations:
 
@@ -106,7 +106,7 @@ Generate the Prisma Client if required:
 npx prisma generate
 ```
 
-### 6. Start the development server
+6. Start the Development Server
 
 ```bash
 npm run dev
@@ -114,7 +114,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 7. Build for production
+7. Build for Production
 
 To check whether the application builds successfully, run:
 
@@ -122,21 +122,21 @@ To check whether the application builds successfully, run:
 npm run build
 ```
 
-## User Roles
+User Roles
 
-### Administrator
+Administrator
 - Add and manage resources.
 - View reservations across users.
 - Manage reservations according to the application's permissions.
 
-### Regular User
+Regular User
 - Register and log in.
 - Browse active resources.
 - Check resource availability.
 - Create and view reservations.
 - Cancel their own reservations.
 
-## Project Structure
+Project Structure
 
 ```text
 app/
@@ -161,39 +161,43 @@ prisma/
 └── schema.prisma
 
 scripts/
+├── create-admin.ts
+└── create-user.ts
+
 auth.ts
 prisma7.config.ts
 package.json
 README.md
 ```
 
-## Database Design
+Database Design
 
-The application uses PostgreSQL for persistent storage and Prisma ORM to define and manage the database schema.
+The application uses PostgreSQL for persistent storage and Prisma ORM to define and manage its database schema.
 
 The database includes three entities: User, Resource, and Reservation. Each reservation is associated with a resource and may optionally be associated with a user.
 
-Entity Relationship (ER) Diagram:[View ER Diagram](https://mermaid.live/edit#pako:eNq1U01PwkAQ_SubOQORrRbojSgmxEQNigfTy9odYUO728xu_ar8dwcEgqYaE3UOzbx5b153ZtsaMqcREkA6MWpGqkgptYJjejWaCPfabrtaTEYMbobX44tzkYhCLdBvZUxdTCfHI_HaJJ2rtfCDZ71FqzA2CKPF5dl-0QcydiasKrChjIUyuZg2dZTK-0dHep-auBwF8WO_qFXAYAoUGSGnehga2arUH9nl_jS70X87UXgum8q5y1QwzooUXLlKVJ5Cg06jz8iU30rvHG9AWWH8MAvm4V-Wsbv3H-8jmPDFvfigKFyboplFqz9zG0fuC5X_i-m2Zyf0rqIMx1qcnn0mK4-0JhoXv4QWzMhoSAJV2IICib9dhlCvBCmEOfIUkHBKqKuntla0aGcud8QudtVfKnvrXLG1IFfN5pDcq9wzej_05sfdVYnXg3TsKhsgkd21ByQ1PDHqHXS6Ufco7sreQA7iQQueIYlkJ46klP3-EZP9KF624GX90oNOv3c44IhZ0ItlJJdvazdJ_A)
+Entity Relationship (ER) Diagram: [View ER Diagram](https://mermaid.live/edit#pako:eNq1U01PwkAQ_SubOQORrRbojSgmxEQNigfTy9odYUO728xu_ar8dwcEgqYaE3UOzbx5b153ZtsaMqcREkA6MWpGqkgptYJjejWaCPfabrtaTEYMbobX44tzkYhCLdBvZUxdTCfHI_HaJJ2rtfCDZ71FqzA2CKPF5dl-0QcydiasKrChjIUyuZg2dZTK-0dHep-auBwF8WO_qFXAYAoUGSGnehga2arUH9nl_jS70X87UXgum8q5y1QwzooUXLlKVJ5Cg06jz8iU30rvHG9AWWH8MAvm4V-Wsbv3H-8jmPDFvfigKFyboplFqz9zG0fuC5X_i-m2Zyf0rqIMx1qcnn0mK4-0JhoXv4QWzMhoSAJV2IICib9dhlCvBCmEOfIUkHBKqKuntla0aGcud8QudtVfKnvrXLG1IFfN5pDcq9wzej_05sfdVYnXg3TsKhsgkd21ByQ1PDHqHXS6Ufco7sreQA7iQQueIYlkJ46klP3-EZP9KF624GX90oNOv3c44IhZ0ItlJJdvazdJ_A)
 
-## Assessment Demonstration
+Assessment Demonstration
 
-Demonstration Video: Add your video link here when available.
+Demonstration Video:Add your video link here when available.
 
 The demonstration should show the main workflows, including authentication, resource management, availability checking, reservation creation, and reservation management.
 
-## Future Improvements
+Future Improvements
 
 - Stronger protection against simultaneous conflicting reservation requests.
 - Automated tests for API endpoints and reservation rules.
 - Improved reservation filtering and reporting.
 - More detailed operational monitoring and error handling.
 
-## Author
+Author
+
 Fathima Ishka
 
 GitHub: [@ishqafathima](https://github.com/ishqafathima)
 
-## Project Information
+Project Information
 
 Developed as part of the PrimeWave Lab (Pvt) Ltd Software Engineering Internship Technical Assessment.
 
