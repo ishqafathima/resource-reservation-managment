@@ -180,7 +180,7 @@ Entity Relationship (ER) Diagram: [View ER Diagram](https://mermaid.live/edit#pa
 
 Assessment Demonstration
 
-Demonstration Video:Add your video link here when available.
+Demonstration Video:("E:\Intern\resource-reservation-management\PrimeWaveLab.mp4")
 
 The demonstration should show the main workflows, including authentication, resource management, availability checking, reservation creation, and reservation management.
 
